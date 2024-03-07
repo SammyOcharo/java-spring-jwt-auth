@@ -15,7 +15,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    private String secret = " ";
+    private String secret = "";
 
     private String generateToken(User user){
         return Jwts
