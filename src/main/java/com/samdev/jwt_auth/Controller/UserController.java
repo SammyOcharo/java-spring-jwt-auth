@@ -1,5 +1,6 @@
 package com.samdev.jwt_auth.Controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.samdev.jwt_auth.DAO.UserDAO;
 import com.samdev.jwt_auth.Service.UserService;
 import org.springframework.http.HttpStatus;
