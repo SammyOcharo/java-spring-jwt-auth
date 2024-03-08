@@ -10,6 +10,7 @@ public class UserDAO {
     private String mobileNumber;
     private String role;
     private String password;
+    private String token;
 
     private String responseCode;
     private String responseMessage;
@@ -17,13 +18,22 @@ public class UserDAO {
     public UserDAO() {
     }
 
-    public UserDAO(String email, String mobileNumber, String role, String password, String responseCode, String responseMessage) {
+    public UserDAO(String email, String token, String mobileNumber, String role, String password, String responseCode, String responseMessage) {
         this.email = email;
         this.mobileNumber = mobileNumber;
         this.role = role;
+        this.token = token;
         this.password = password;
         this.responseCode = responseCode;
         this.responseMessage = responseMessage;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getEmail() {
