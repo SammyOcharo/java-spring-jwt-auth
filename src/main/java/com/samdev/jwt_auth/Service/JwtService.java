@@ -1,10 +1,10 @@
 package com.samdev.jwt_auth.Service;
 
+import com.samdev.jwt_auth.Entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class JwtService {
 
     private String secret = "";
 
-    private String generateToken(User user){
+    public String generateToken(User user){
         return Jwts
                 .builder()
                 .subject(user.getUsername())
