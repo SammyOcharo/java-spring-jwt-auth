@@ -11,6 +11,7 @@ public class UserDAO {
     private String role;
     private String password;
     private String token;
+    private String errorCode;
 
     private String responseCode;
     private String responseMessage;
