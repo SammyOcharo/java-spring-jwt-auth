@@ -2,14 +2,16 @@ package com.samdev.jwt_auth.Service.Impl;
 
 import com.samdev.jwt_auth.DAO.UserDAO;
 import com.samdev.jwt_auth.Entity.User;
+import com.samdev.jwt_auth.Entity.UserAccountVerify;
+import com.samdev.jwt_auth.Exceptions.OtpMissmatch;
 import com.samdev.jwt_auth.Exceptions.UserAlreadyExistsException;
 import com.samdev.jwt_auth.Exceptions.UserDoesNotExistsException;
+import com.samdev.jwt_auth.Repository.UserAccountRepository;
 import com.samdev.jwt_auth.Repository.UserRepository;
 import com.samdev.jwt_auth.Service.JwtService;
 import com.samdev.jwt_auth.Service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +20,19 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserAccountRepository userAccountRepository;
 
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService, AuthenticationManager authenticationManager) {
+    public UserServiceImpl(UserRepository userRepository,
+                           PasswordEncoder passwordEncoder, UserAccountRepository userAccountRepository,
+                           JwtService jwtService,
+                           AuthenticationManager authenticationManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.userAccountRepository = userAccountRepository;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
     }
@@ -90,6 +97,48 @@ public class UserServiceImpl implements UserService {
 
             return userDAO1;
         }catch (Exception e){
+            userDAO1.setResponseMessage("Internal Server Error");
+            userDAO1.setResponseCode("500");
+
+            return userDAO1;
+        }
+    }
+
+    @Override
+    public UserDAO userVerifyAccount(UserDAO userDAO) {
+        UserDAO userDAO1 = new UserDAO();
+        try{
+            if(!userRepository.existsByEmail(userDAO.getEmail())){
+                throw new UserDoesNotExistsException("User does not exist");
+            }else {
+                UserAccountVerify userAccountVerify= userAccountRepository.findByEmail(userDAO.getEmail())
+                                .orElseThrow(()->  new UserDoesNotExistsException("User does not exist"));
+
+                if(!userAccountVerify.getOtp().equals(userDAO.getOtp())){
+                    throw new OtpMissmatch("Otp mismatch!");
+                }
+
+                User user = userRepository.findByEmail(userDAO.getEmail()).orElseThrow();
+
+                user.setAccountActivated(Boolean.TRUE);
+
+                userRepository.save(user);
+
+                userAccountVerify.setUsed(Boolean.TRUE);
+                userAccountRepository.save(userAccountVerify);
+
+
+                userDAO1.setResponseCode("200");
+                userDAO1.setResponseMessage("Account verified!");
+
+                return userDAO1;
+            }
+        }catch (OtpMissmatch | UserDoesNotExistsException e){
+            userDAO1.setResponseMessage(e.getMessage());
+            userDAO1.setResponseCode("400");
+
+            return userDAO1;
+        } catch (Exception e){
             userDAO1.setResponseMessage("Internal Server Error");
             userDAO1.setResponseCode("500");
 

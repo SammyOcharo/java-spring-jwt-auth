@@ -11,7 +11,7 @@ public class UserDAO {
     private String role;
     private String password;
     private String token;
-    private String errorCode;
+    private Integer otp;
 
     private String responseCode;
     private String responseMessage;
@@ -19,12 +19,13 @@ public class UserDAO {
     public UserDAO() {
     }
 
-    public UserDAO(String email, String token, String mobileNumber, String role, String password, String responseCode, String responseMessage) {
+    public UserDAO(String email, String mobileNumber, String role, String password, String token, Integer otp, String responseCode, String responseMessage) {
         this.email = email;
         this.mobileNumber = mobileNumber;
         this.role = role;
-        this.token = token;
         this.password = password;
+        this.token = token;
+        this.otp = otp;
         this.responseCode = responseCode;
         this.responseMessage = responseMessage;
     }
@@ -55,6 +56,14 @@ public class UserDAO {
 
     public String getRole() {
         return role;
+    }
+
+    public Integer getOtp() {
+        return otp;
+    }
+
+    public void setOtp(Integer otp) {
+        this.otp = otp;
     }
 
     public void setRole(String role) {
