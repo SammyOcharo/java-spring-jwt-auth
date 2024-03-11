@@ -12,8 +12,11 @@ import com.samdev.jwt_auth.Service.JwtService;
 import com.samdev.jwt_auth.Service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Random;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,20 +24,21 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserAccountRepository userAccountRepository;
-
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;
+    private final EmailService emailService;
 
     public UserServiceImpl(UserRepository userRepository,
                            PasswordEncoder passwordEncoder, UserAccountRepository userAccountRepository,
                            JwtService jwtService,
-                           AuthenticationManager authenticationManager) {
+                           AuthenticationManager authenticationManager, EmailService emailService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.userAccountRepository = userAccountRepository;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
+        this.emailService = emailService;
     }
 
     @Override
@@ -55,8 +59,22 @@ public class UserServiceImpl implements UserService {
 
             userRepository.save(user);
 
+            Random random = new Random();
+            int otp = random.nextInt(10000) + 1000;
+
+            String subject = "Activate account OTP";
+            String body = "Use this otp " + otp + " to activate your account";
+
+            emailService.sendEmail(userDAO.getEmail(), subject,  body);
+
+            UserAccountVerify userAccountVerify = new UserAccountVerify();
+            userAccountVerify.setEmail(userDAO.getEmail());
+            userAccountVerify.setOtp(otp);
+
+            userAccountRepository.save(userAccountVerify);
+
             userDAO1.setResponseCode("200");
-            userDAO1.setResponseMessage("User registered successfully!");
+            userDAO1.setResponseMessage("User registered successfully. Account verification otp sent to email!");
 
             return userDAO1;
 
@@ -91,6 +109,11 @@ public class UserServiceImpl implements UserService {
                 return userDAO1;
             }
 
+        }catch (AuthenticationException e) {
+            userDAO1.setResponseMessage("Incorrect username or password!");
+            userDAO1.setResponseCode("400");
+
+            return userDAO1;
         }catch (UserDoesNotExistsException e){
             userDAO1.setResponseMessage(e.getMessage());
             userDAO1.setResponseCode("400");
@@ -109,7 +132,7 @@ public class UserServiceImpl implements UserService {
         UserDAO userDAO1 = new UserDAO();
         try{
             if(!userRepository.existsByEmail(userDAO.getEmail())){
-                throw new UserDoesNotExistsException("User does not exist");
+                throw new UserDoesNotExistsException("User with email" + userDAO.getEmail()+" does not exist");
             }else {
                 UserAccountVerify userAccountVerify= userAccountRepository.findByEmail(userDAO.getEmail())
                                 .orElseThrow(()->  new UserDoesNotExistsException("User does not exist"));
