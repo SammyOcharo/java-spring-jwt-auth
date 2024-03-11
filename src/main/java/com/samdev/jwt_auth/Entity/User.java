@@ -20,16 +20,23 @@ public class User implements UserDetails {
     private String mobileNumber;
     private String role;
     private String password;
+    private boolean isAccountActivated=false;
 
     public User() {
     }
 
-    public User(Long id, String email, String mobileNumber, String role, String password) {
+    public User(Long id,
+                String email,
+                String mobileNumber,
+                String role,
+                String password,
+                boolean isAccountActivated) {
         this.id = id;
         this.email = email;
         this.mobileNumber = mobileNumber;
         this.role = role;
         this.password = password;
+        this.isAccountActivated = isAccountActivated;
     }
 
     public Long getId() {
@@ -38,6 +45,14 @@ public class User implements UserDetails {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isAccountActivated() {
+        return isAccountActivated;
+    }
+
+    public void setAccountActivated(boolean accountActivated) {
+        isAccountActivated = accountActivated;
     }
 
     public String getMobileNumber() {

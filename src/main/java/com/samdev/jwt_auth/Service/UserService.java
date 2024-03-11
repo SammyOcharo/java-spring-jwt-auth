@@ -6,4 +6,6 @@ public interface UserService {
     UserDAO userRegister(UserDAO userDAO);
 
     UserDAO userLogin(UserDAO userDAO);
+
+    UserDAO userVerifyAccount(UserDAO userDAO);
 }
