@@ -112,7 +112,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - This claim typically holds information such as the username or user identifier.
   - In essence, `extractUsername` provides a convenient way to isolate and retrieve the username from a token, catering to scenarios where user
   
-    [6]
+  [6]
   - snippet
   - The `isTokenValid` method checks the validity of a given token for a specified user. Initially, it extracts the username (in this case an email) from the token using the `extractUsername` function.
   - Subsequently, the method compares this extracted username with the username of the provided `UserDetails` object.
@@ -120,7 +120,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - Conversely, if the usernames do not match, the method returns `false`, indicating that the token is not valid for the provided user.
   - Essentially, this method aids in verifying the integrity of a token in relation to a specific user in the system.
  
-    [7]
+  [7]
   - snippet
   - The `isTokenExpired` method checks whether a given token has expired.
   - It accomplishes this by using method, `extractExpiration`, to retrieve the expiration date from the token using the `extractClaim` function.
