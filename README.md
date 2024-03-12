@@ -103,6 +103,13 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
     - It takes two inputs: the token itself and a resolver function. The method calls, `extractAllClaims`,method to gather all the available claims from the provided token.
     - Subsequently, it applies the resolver function to these claims, allowing for the extraction of a particular piece of information.
     - In simpler terms, this method acts as a helpful tool to fetch specific details from a token by utilizing a resolver function tailored to the desired type of information.
+ 
+    [5]
+  - The `extractUsername` method serves as a simple function that takes a token, as input and focuses on extracting the username from it.
+  - Internally, it utilizes the more general `extractClaim` function, which I discussed earlier.
+  - By passing in the token and specifying a resolver function as `Claims::getSubject`, the method specifically targets the "subject" claim within the token.
+  - This claim typically holds information such as the username or user identifier.
+  - In essence, `extractUsername` provides a convenient way to isolate and retrieve the username from a token, catering to scenarios where user
   
 
 # Usage
