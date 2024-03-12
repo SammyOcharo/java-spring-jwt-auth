@@ -52,6 +52,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 
 [Step 2(Create UserRepository Interface)](#entityRepositorycreation)
 - We create a UserRepository that extends the extends the JpaRepository interface, which is part of the Spring Data JPA framework. JpaRepository is a generic interface that provides CRUD (Create, Read, Update, Delete) operations for entities. In this case, the entity type is User, and the primary key type is Long.
+- The @Repository annotation is used to indicate that the interface is a Spring Data repository. It is a specialization of the @Component annotation, allowing Spring to automatically detect and manage the bean.
 - Additionally we create a method, Optional<UserDetails> findByEmail(String email);
 - The method will check our database and check wether the user with  the email address passed exists. Before authentication.
 - Here is the snippet.
@@ -60,6 +61,21 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - We create a service class under Service impl. This service class will implement the UserDetailService interface. 
 - The UserDetailsService interface is provided by Spring Security. It declares a single method, loadUserByUsername, which is responsible for loading user details by username during the authentication process.
 - Here is the snippet.
+
+[Step 4(JWT Service class Creation)](#JWTcreation)
+- This class will be responsible for generating token, claims extraction and checking validity of token.
+- We start with token generation
+    ##snippet
+
+  
+- The `generateToken` method is a public function designed to take a `User` object as its input and return a String.
+- The primary objective of this method is to create a JSON Web Token (JWT) based on the information provided within the user object.
+- The JWT generation process involves several steps.
+- Firstly, the method employs `Jwts.builder()` to initiate the construction of the JWT.
+- Subsequently, it sets the subject of the JWT to the username of the given user using `.subject(user.getUsername())`. The method then establishes the issuance time of the JWT as the current time with `.issuedAt(new Date(System.currentTimeMillis()))`.
+- Additionally, it sets the expiration time of the JWT to be 24 hours from the current time through the use of `.expiration(new Date(System.currentTimeMillis() * 24 * 60 * 60))`.
+- The JWT is further secured by signing it with a key, as denoted by `.signWith(SignWithKey())`.
+- Finally, the method concludes the JWT creation process with `.compact()`, which builds the final compact JWT string.
 
 # Usage
 - [API Endpoints](#api-endpoints)
