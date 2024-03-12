@@ -93,6 +93,13 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - After setting up the parser, it proceeds to parse the signed claims from the token using `.parseSignedClaims(token)`.
 - Finally, it retrieves and returns the payload, which contains the data and claims of the token, using `.getPayload()`.
 - In simpler terms, this method ensures that the token is valid, verifies its signature, and then extracts and provides access to the information (claims) stored within the token.
+
+  [4]
+  - snippet
+  - The `extractClaim` method is a versatile function designed to retrieve specific information (claims) from a given token, possibly a JSON Web Token (JWT).
+  - It takes two inputs: the token itself and a resolver function. The method calls, `extractAllClaims`,method to gather all the available claims from the provided token.
+  - Subsequently, it applies the resolver function to these claims, allowing for the extraction of a particular piece of information.
+  - In simpler terms, this method acts as a helpful tool to fetch specific details from a token by utilizing a resolver function tailored to the desired type of information.
   
 
 # Usage
