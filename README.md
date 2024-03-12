@@ -64,7 +64,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 
 [Step 4(JWT Service class Creation)](#JWTcreation)
 - This class will be responsible for generating token, claims extraction and checking validity of token.
-- The following methods are in the jwtservice class.
+- The following methods are in the jwtservice class.<br>
     [1]
 - We start with token generation
     
@@ -85,7 +85,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - 
   The `SignWithKey` method is a private function responsible for creating a secret key used in signing a JSON Web Token (JWT). Initially, the method decodes the provided `secret` variable, which holds a secret key in base64 URL-encoded format, into a sequence of bytes. Subsequently, it utilizes the `Keys.hmacShaKeyFor` function to generate a secure HMAC (Hash-based Message Authentication Code) key using the decoded byte array. This HMAC key is crucial for ensuring the integrity and authenticity of the data during the process of creating a JWT.
 
-[3]
+  [3]
 
   
 
