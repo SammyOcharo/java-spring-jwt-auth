@@ -141,6 +141,9 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - If true, it extracts the JWT, gets the user email from it, and validates the token using the injected services.
 - If the token is valid and the user is not already authenticated, it creates a Spring Security authentication token and sets it in the SecurityContextHolder.
 - Finally, the filter chain is continued using "filterChain.doFilter(request, response)," allowing the request to proceed to the next filters or the actual endpoint.
+
+[Step 6(SecurityConfig class Creation)](#SecurityConfigClassCreation)
+
     
 # Usage
 - [API Endpoints](#api-endpoints)
