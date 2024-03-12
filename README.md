@@ -1,5 +1,5 @@
 # Prerequisites
-- [Installation](#installation)
+- [Maven Dependencies](#installation)
 - [Configuration](#configuration)
 # Usage
 - [API Endpoints](#api-endpoints)
