@@ -121,7 +121,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - Essentially, this method aids in verifying the integrity of a token in relation to a specific user in the system.
  
     [7]
-  -snippet
+  - snippet
   - The `isTokenExpired` method checks whether a given token has expired.
   - It accomplishes this by using method, `extractExpiration`, to retrieve the expiration date from the token using the `extractClaim` function.
   - The `Claims::getExpiration` function is specified to extract the expiration date claim.
