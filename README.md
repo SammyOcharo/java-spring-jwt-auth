@@ -21,7 +21,15 @@
 - Here is a snippet of the configuration file(application.properties) located under src/main/java/resources/application.properties
 - On the (spring.datasource.username) and (spring.datasource.username) you will add the correct mysql username and passoword set on your local machine
 - ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/application_properties.png)
-  
+  Under src/main/java/com.samdev.jwt_auth we make the following packages
+  1. Config
+  2. Controller
+  3. DAO
+  4. Entity
+  5. Exceptions
+  6. Repository
+  7. Service
+  8. Service/Impl
 # Usage
 - [API Endpoints](#api-endpoints)
 - [Authentication and Authorization](#authentication-and-authorization)
