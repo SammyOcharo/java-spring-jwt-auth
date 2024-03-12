@@ -129,7 +129,18 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - Essentially, `isTokenExpired` simplifies the process of checking the validity of a token based on its expiration status.
  
 [Step 5(Filter class Creation)](#FilterClassCreation)
-
+- Snippet.
+- Under the config package we create a SecurityFilter class.
+- The purpose of this filter is to intercept incoming HTTP requests. This is possible by extending to the OncePerRequestClass.
+- It is annotated with "@Component," indicating that it is a Spring component and can be automatically detected and used by the Spring framework.
+- The purpose of this filter is to intercept incoming HTTP requests and check for a specific type of header called "Authorization."
+- If the header is present and starts with "Bearer," it extracts a JWT (JSON Web Token) from the header, validates it, and if valid, sets up the user authentication in the Spring Security context.
+- The class has two dependencies injected through its constructor: "JwtService" and "UserAuthService." These services are responsible for handling JWT-related operations(from our earlier jwt service class) and user authentication, respectively.
+- The "doFilterInternal" method, overridden from the parent class, is where the main logic happens.
+- It checks if the Authorization header is present and starts with "Bearer."
+- If true, it extracts the JWT, gets the user email from it, and validates the token using the injected services.
+- If the token is valid and the user is not already authenticated, it creates a Spring Security authentication token and sets it in the SecurityContextHolder.
+- Finally, the filter chain is continued using "filterChain.doFilter(request, response)," allowing the request to proceed to the next filters or the actual endpoint.
     
 # Usage
 - [API Endpoints](#api-endpoints)
