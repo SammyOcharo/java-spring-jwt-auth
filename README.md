@@ -143,6 +143,15 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - Finally, the filter chain is continued using "filterChain.doFilter(request, response)," allowing the request to proceed to the next filters or the actual endpoint.
 
 [Step 6(SecurityConfig class Creation)](#SecurityConfigClassCreation)
+- snippet
+- The SecurityConfig class lies in its role as a central configuration hub for managing security aspects within a Spring-based web application.
+- The `securityFilterChain` method, annotated with `@Bean`, within the provided `SecurityConfig` class is crucial for defining the security filter chain in a Spring Security-enabled web application.
+- This method, taking an `HttpSecurity` parameter, having a comprehensive set of security configurations. Firstly, it disables Cross-Site Request Forgery (CSRF) protection, indicating suitability for stateless scenarios like APIs.
+- The subsequent configuration, employing the `authorizeHttpRequests` method, establishes rules for request authorization.
+- Requests matching patterns such as "/apps/api/v1/user/**" and "/apps/api/v1/user/login/" are permitted without authentication, while any other request requires authentication.
+- Furthermore, the method sets the session creation policy to be stateless, aligning with the principles of stateless RESTful APIs.
+- It integrates a custom authentication provider, configured in the `authenticationProvider` method, and adds a custom security filter before the standard `UsernamePasswordAuthenticationFilter`.
+- The resulting `SecurityFilterChain` encapsulates the entirety of these configurations, representing a robust security framework for the Spring Security-enabled web application.
 
     
 # Usage
