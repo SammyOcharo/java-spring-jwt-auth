@@ -37,7 +37,7 @@
   4. role
   5. password
   6. isAccountActivated.
- Here is a snippet of the class.
+- Here is a snippet of the class.
 
 We then implement the UserDetails interface. Spring security provides an interface called UserDetails Interface. In the context of Spring security the interface is critical as it provides.
 - Reliance. Spring Security relies on the UserDetails interface to obtain user information during the authentication process. This flexibility enables you to integrate your user management system seamlessly with Spring Security, regardless of whether you are using a database, LDAP, or any other authentication provider.
