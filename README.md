@@ -30,6 +30,8 @@
   6. Repository
   7. Service
   8. Service/Impl
+
+[Step 1](#entitycreation)
 - We will create our User entity class in the entity package. This user entity class will have member variables that will create columns in the database. Our entity class will entail the following fields
   1. id
   2. email
