@@ -157,8 +157,8 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 # Usage
 - [API Endpoints](#api-endpoints)
 - The project has 3 endpoints
-  [1. Register User](#RegisterUser)
-  [2. Verify User](#VerifyUser)
+  [1. Register User](#RegisterUser)<br>
+  [2. Verify User](#VerifyUser)<br>
   [3. Login User](#LoginUser)
   
 - [Authentication and Authorization](#authentication-and-authorization)
