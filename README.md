@@ -105,13 +105,30 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
     - In simpler terms, this method acts as a helpful tool to fetch specific details from a token by utilizing a resolver function tailored to the desired type of information.
  
     [5]
+  - snippet
   - The `extractUsername` method serves as a simple function that takes a token, as input and focuses on extracting the username from it.
   - Internally, it utilizes the more general `extractClaim` function, which I discussed earlier.
   - By passing in the token and specifying a resolver function as `Claims::getSubject`, the method specifically targets the "subject" claim within the token.
   - This claim typically holds information such as the username or user identifier.
   - In essence, `extractUsername` provides a convenient way to isolate and retrieve the username from a token, catering to scenarios where user
   
+    [6]
+  - snippet
+  - The `isTokenValid` method checks the validity of a given token for a specified user. Initially, it extracts the username (in this case an email) from the token using the `extractUsername` function.
+  - Subsequently, the method compares this extracted username with the username of the provided `UserDetails` object.
+  - If the two usernames match, the method concludes that the token is valid for the particular user, and it returns `true`.
+  - Conversely, if the usernames do not match, the method returns `false`, indicating that the token is not valid for the provided user.
+  - Essentially, this method aids in verifying the integrity of a token in relation to a specific user in the system.
+ 
+    [7]
+  -snippet
+  - The `isTokenExpired` method checks whether a given token has expired.
+  - It accomplishes this by using method, `extractExpiration`, to retrieve the expiration date from the token using the `extractClaim` function.
+  - The `Claims::getExpiration` function is specified to extract the expiration date claim.
+  - Then, the method compares the extracted expiration date with the current date, returning `true` if the token has expired (if the expiration date is before the current date) and `false` otherwise.
+  - Essentially, `isTokenExpired` simplifies the process of checking the validity of a token based on its expiration status.
 
+    
 # Usage
 - [API Endpoints](#api-endpoints)
 - [Authentication and Authorization](#authentication-and-authorization)
