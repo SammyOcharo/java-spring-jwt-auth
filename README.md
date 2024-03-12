@@ -50,7 +50,13 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - Here is a snippet of the class.
  ##Picture here
 
-[Step 2(User Service class Creation)](#entitycreation)
+[Step 2(Create UserRepository Interface)](#entityRepositorycreation)
+
+
+[Step 3(UserAuth Service class Creation)](#entitycreation)
+-We create a service class under Service impl. This service class will implement the UserDetailService interface. 
+- The UserDetailsService interface is provided by Spring Security. It declares a single method, loadUserByUsername, which is responsible for loading user details by username during the authentication process.
+- 
 
 # Usage
 - [API Endpoints](#api-endpoints)
