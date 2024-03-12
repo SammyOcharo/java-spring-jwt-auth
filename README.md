@@ -17,6 +17,8 @@
 - [Configuration](#configuration)
 - After inclusion of all the depencies and downloaded the zip folder. Unzip it and open on your IDE of choice. In this project am going to work with Intellij Idea.
 - All dependencies should be available on the project's pom.xml file.
+- Because we are working with MYSQL, spring expects us to add configuration that will be used by Spring data JPA in connecting to the database.
+- Here is a snippet of the configuration file(application.properties) located under src/main/java/resources/application.properties
 - ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/application_properties.png)
 # Usage
 - [API Endpoints](#api-endpoints)
