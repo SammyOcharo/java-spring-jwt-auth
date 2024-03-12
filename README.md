@@ -17,7 +17,7 @@
 - [Configuration](#configuration)
 - After inclusion of all the depencies and downloaded the zip folder. Unzip it and open on your IDE of choice. In this project am going to work with Intellij Idea.
 - All dependencies should be available on the project's pom.xml file.
-- 
+- ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/application_properties.png)
 # Usage
 - [API Endpoints](#api-endpoints)
 - [Authentication and Authorization](#authentication-and-authorization)
