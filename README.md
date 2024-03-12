@@ -2,7 +2,7 @@
 - [Maven Dependencies](#installation)
 - On [Spring initializer](https://start.spring.io/)
 - We need the following dependencies to get us started.
-- 1. Spring security
+  1. Spring security
   2. Spring web
   3. Spring data jpa
   4. Spring dev tools
@@ -19,7 +19,9 @@
 - All dependencies should be available on the project's pom.xml file.
 - Because we are working with MYSQL, spring expects us to add configuration that will be used by Spring data JPA in connecting to the database.
 - Here is a snippet of the configuration file(application.properties) located under src/main/java/resources/application.properties
+- On the (spring.datasource.username) and (spring.datasource.username) you will add the correct mysql username and passoword set on your local machine
 - ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/application_properties.png)
+  
 # Usage
 - [API Endpoints](#api-endpoints)
 - [Authentication and Authorization](#authentication-and-authorization)
