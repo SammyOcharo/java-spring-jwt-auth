@@ -156,13 +156,15 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
     
 # Usage
 - [API Endpoints](#api-endpoints)
-- The project has 3 endpoints
+- The project has 3 endpoints<br>
   [1. Register User](#RegisterUser)<br>
   [2. Verify User](#VerifyUser)<br>
   [3. Login User](#LoginUser)
+
+[1]
+-Using our DAO class we will register the user. Testing on postman to check on the responses.
+
   
-- [Authentication and Authorization](#authentication-and-authorization)
 # Error Handling
-# Testing
 # Contributing
 # License
