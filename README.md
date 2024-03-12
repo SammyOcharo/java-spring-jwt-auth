@@ -81,7 +81,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - The JWT is further secured by signing it with a key, as denoted by `.signWith(SignWithKey())`.
   - Finally, the method concludes the JWT creation process with `.compact()`, which builds the final compact JWT string.
 
-    [2]
+  [2]
    - snippet
    - The `SignWithKey` method is a private function responsible for creating a secret key used in signing a JSON Web Token (JWT).
    - First, the method decodes the provided `secret` variable, which holds a secret key in base64 URL-encoded format, into a sequence of bytes.
