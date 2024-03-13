@@ -161,7 +161,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 
 ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/postman_register.png)
 
-- otp sent to email
+- otp sent to email<br>
 ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/email_otp.png)
   
   [2. Verify User](#VerifyUser)<br>
