@@ -3,7 +3,7 @@ package com.samdev.jwt_auth.Service.Impl;
 import com.samdev.jwt_auth.DAO.UserDAO;
 import com.samdev.jwt_auth.Entity.User;
 import com.samdev.jwt_auth.Entity.UserAccountVerify;
-import com.samdev.jwt_auth.Exceptions.OtpMissmatch;
+import com.samdev.jwt_auth.Exceptions.OtpMissMatch;
 import com.samdev.jwt_auth.Exceptions.UserAlreadyExistsException;
 import com.samdev.jwt_auth.Exceptions.UserDoesNotExistsException;
 import com.samdev.jwt_auth.Repository.UserAccountRepository;
@@ -138,7 +138,7 @@ public class UserServiceImpl implements UserService {
                                 .orElseThrow(()->  new UserDoesNotExistsException("User does not exist"));
 
                 if(!userAccountVerify.getOtp().equals(userDAO.getOtp())){
-                    throw new OtpMissmatch("Otp mismatch!");
+                    throw new OtpMissMatch("Otp mismatch!");
                 }
 
                 User user = userRepository.findByEmail(userDAO.getEmail()).orElseThrow();
@@ -156,7 +156,7 @@ public class UserServiceImpl implements UserService {
 
                 return userDAO1;
             }
-        }catch (OtpMissmatch | UserDoesNotExistsException e){
+        }catch (OtpMissMatch | UserDoesNotExistsException e){
             userDAO1.setResponseMessage(e.getMessage());
             userDAO1.setResponseCode("400");
 
