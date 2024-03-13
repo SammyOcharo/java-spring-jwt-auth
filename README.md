@@ -158,8 +158,22 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 - [API Endpoints](#api-endpoints)
 - The project has 3 endpoints<br>
   [1. Register User](#RegisterUser)<br>
+
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/postman_register.png)
+
+- otp sent to email
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/email_otp.png)
+  
   [2. Verify User](#VerifyUser)<br>
-  [3. Login User](#LoginUser)
+
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/postman_verify_account.png)
+
+  
+  [3. Login User](#LoginUser)<br>
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/user_login.png)
+
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/mysql_user.png)
+
 
 [1]
 -Using our DAO class we will register the user. Testing on postman to check on the responses.
