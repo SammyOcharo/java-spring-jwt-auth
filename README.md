@@ -177,5 +177,44 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 
   
 # Error Handling
+- Here is some of the custom errors used in the project. When it comes to error handling custom errors serve more purposes to communicate more precisely to the end user
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/OtpMissMatch.png)
+
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/UserAlreadyExists.png)
+
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/UserDoesNotExist.png)
+
 # Contributing
+For a Java Spring Boot project, the contributing section can be tailored to the specific development environment and practices commonly used in Java projects. Here's an example template:
+
+## Contributing
+
+Thank you for considering contributing to our project! Whether you want to report a bug, propose a feature, or contribute code, your help is welcome.
+
+### Bug Reports and Feature Requests
+
+If you encounter any issues or have ideas for improvements, please open an issue on our [issue tracker](link-to-issue-tracker). When creating an issue, please provide detailed information about the problem or feature request, including steps to reproduce the issue.
+
+### Development Setup
+
+To set up the project for development:
+
+1. Fork the repository and clone it locally.
+2. Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) and [Maven](https://maven.apache.org/download.cgi) if you haven't already.
+3. Build the project using Maven: `mvn clean install`.
+4. Import the project into your favorite IDE.
+
+### Coding Guidelines
+
+Before contributing code, please make sure to follow the correct coding guidelines. 
+
+### Creating Pull Requests
+
+1. Create a new branch for your contribution: `git checkout -b feature/new-feature`.
+2. Make your changes and ensure they pass all tests.
+3. Commit your changes with a clear and descriptive message: `git commit -m "Add new feature"`.
+4. Push your changes to your fork: `git push origin feature/new-feature`.
+5. Open a pull request against the `main` branch.
+
 # License
+- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
