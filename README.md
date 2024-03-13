@@ -185,9 +185,6 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/UserDoesNotExist.png)
 
 # Contributing
-For a Java Spring Boot project, the contributing section can be tailored to the specific development environment and practices commonly used in Java projects. Here's an example template:
-
-## Contributing
 
 Thank you for considering contributing to our project! Whether you want to report a bug, propose a feature, or contribute code, your help is welcome.
 
