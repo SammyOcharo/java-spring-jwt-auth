@@ -1,6 +1,5 @@
 package com.samdev.jwt_auth.Service.Impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -21,6 +20,14 @@ public class EmailService {
         simpleMailMessage.setText(body);
         simpleMailMessage.setSubject(subject);
 
-        javaMailSender.send(simpleMailMessage);
+        System.out.println("Sending email to: " + to);
+
+        try {
+            javaMailSender.send(simpleMailMessage);
+            System.out.println("Email sent successfully.");
+        } catch (Exception e) {
+            System.err.println("Error sending email: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
