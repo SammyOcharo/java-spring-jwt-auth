@@ -65,11 +65,9 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
 [Step 4(JWT Service class Creation)](#JWTcreation)
 - This class will be responsible for generating token, claims extraction and checking validity of token.
 - The following methods are in the jwtservice class.<br>
-    [1]
-  - We start with token generation
-    
+    [1]    
 ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/generate_token.png)
-  
+  - We start with token generation  
   - The `generateToken` method is a public function designed to take a `User` object as its input and return a String.
   - The primary objective of this method is to create a JSON Web Token (JWT) based on the information provided within the user object.
   - The JWT generation process involves several steps.
@@ -81,7 +79,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - Finally, the method concludes the JWT creation process with `.compact()`, which builds the final compact JWT string.
 
   [2]
-  ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/signWithKey.png)
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/signWithKey.png)
    - The `SignWithKey` method is a private function responsible for creating a secret key used in signing a JSON Web Token (JWT).
    - First, the method decodes the provided `secret` variable, which holds a secret key in base64 URL-encoded format, into a sequence of bytes.
    - Then, it utilizes the `Keys.hmacShaKeyFor` function to generate a secure HMAC (Hash-based Message Authentication Code) key using the decoded byte array.
@@ -112,7 +110,7 @@ The UserDetails interface includes methods such as isEnabled(), isAccountNonExpi
   - In essence, `extractUsername` provides a convenient way to isolate and retrieve the username from a token, catering to scenarios where user
   
   [6]
-  ![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/isTokenValid.png)
+![Spring Boot Logo](https://github.com/SammyOcharo/java-spring-jwt-auth/blob/main/src/main/java/com/samdev/jwt_auth/images/isTokenValid.png)
   - The `isTokenValid` method checks the validity of a given token for a specified user. Initially, it extracts the username (in this case an email) from the token using the `extractUsername` function.
   - Subsequently, the method compares this extracted username with the username of the provided `UserDetails` object.
   - If the two usernames match, the method concludes that the token is valid for the particular user, and it returns `true`.
