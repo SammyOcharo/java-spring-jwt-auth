@@ -94,6 +94,7 @@ public class UserServiceImpl implements UserService {
         UserDAO userDAO1 = new UserDAO();
 
         try{
+            //check if email does not exist
             if(!userRepository.existsByEmail(userDAO.getEmail())){
                 throw new UserDoesNotExistsException("User does not exist");
             }else {
