@@ -25,6 +25,8 @@ public class UserController {
     public ResponseEntity<UserDAO> userRegister(@RequestBody UserDAO userDAO){
         return new ResponseEntity<>(userService.userRegister(userDAO), HttpStatus.OK);
     }
+
+    //verify account
     @PostMapping("verify-account/")
     public ResponseEntity<UserDAO> userVerifyAccount(@RequestBody UserDAO userDAO){
         return new ResponseEntity<>(userService.userVerifyAccount(userDAO), HttpStatus.OK);
